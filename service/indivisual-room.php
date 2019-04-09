@@ -8,7 +8,7 @@ if (isset($_GET['roomId']) && $_GET['roomId']!="" && isset($_GET['date']) && $_G
     
 	$result = mysqli_query(
 	$mysqli,
-	"SELECT * FROM `booking` WHERE RoomNumber=701 AND BookedFor='2018-04-06' ");
+	"SELECT * FROM `booking` WHERE RoomNumber=roomId AND BookedFor='$date' ");
     if(mysqli_num_rows($result)>0)
     {
         $row = mysqli_fetch_array($result);
