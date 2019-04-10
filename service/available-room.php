@@ -8,7 +8,8 @@ if (isset($_GET['date']) && $_GET['date']!="")
 	if ($result = $mysqli->query("
     SELECT RoomNumber,
     (Select name FROM booking where `BookedFor`='$date' AND RoomNumber= rooms.`RoomNumber`) As 'name',
-    (Select status FROM booking where `BookedFor`='$date' AND RoomNumber= rooms.`RoomNumber`) As 'status' 
+    (Select status FROM booking where `BookedFor`='$date' AND RoomNumber= rooms.`RoomNumber`) As 'status',
+    (Select DateTime FROM booking where `BookedFor`='$date' AND RoomNumber= rooms.`RoomNumber`) As 'DateTime' 
     FROM rooms")) 
     {
 
