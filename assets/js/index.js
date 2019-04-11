@@ -2,6 +2,8 @@ function showhide()
 {
     $('#records_table').show();
     $('#main-logic').hide();
+    $('#selection').hide();
+    $('#continue').show();
 }
 
 function search()
@@ -41,7 +43,7 @@ function search()
                     if(item.name === null && item.status === null)
                     {
                     
-                        trHTML += '<tr><td>' + sl + '</td><td>' + item.RoomNumber + '</td><td>' + name + '</td><td>' + status + '</td><td><button class="btn btn-primary" id="room_' + item.RoomNumber + '" onclick="book(' + item.RoomNumber + ')">Choose</button></td></tr>';     
+                        trHTML += '<tr><td>' + sl + '</td><td>' + item.RoomNumber + '</td><td>' + name + '</td><td>' + status + '</td><td><button class="btn btn-primary" id="room_' + item.RoomNumber + '" onclick="book(' + item.RoomNumber + ')">Available for Booking</button></td></tr>';     
                     }
                     else
                     {
@@ -105,6 +107,7 @@ function booking()
     $('#selection').show();
     $('#records_table').hide();
     $('#main-logic').show();
+    $('#continue').hide();
 
     /* Main Logic Here */
     var selectedRoom = $('#roomNumber').val();

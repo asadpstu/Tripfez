@@ -210,6 +210,7 @@
 
     function cancelRoom(roomid)
     {
+        
         $("#room-select-"+roomid).hide('slow', function(){ $("#room-select-"+roomid).remove(); });
         
         $('#room_'+roomid).removeClass( "btn btn-warning" ).addClass( "btn btn-primary" );
@@ -219,11 +220,28 @@
 
     function submitbooking()
     {
-        $("#myModal-confirm").modal('show');
+        var adult = 0;
+        $('input[name="adult[]"]').each(function() 
+        {
+            var loopAdult = $(this).val();
+            adult = Number(loopAdult) + Number(adult);
+            
+        });
+        if(Number(adult) >= 1)
+        {
+          $("#myModal-confirm").modal('show');  
+        }
+        else
+        {
+            $('input[name="adult[]"]').css('border','1px solid RED')
+        }
+        
 		     
     }
 
     function reconfirm() {
+
+        
 
         $('#SubForm').html('Processing Data...');
         var roomlist = $('#roomNumber').val();        

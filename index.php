@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TripFez</title>
     <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="custom.css" rel="stylesheet">
 
 </head> 
@@ -38,11 +39,11 @@
         <div class="container">
           <p style="padding-top:10px;">
                 <h4></h4> 
-                <label style="font-size:18px;font-weight:400;margin-right:15px;">Select Your Booking date: </label> 
-                <input type="text" name="date" id="date" alt="date" class="IP_calendar" title="Y-m-d">
-                <button class="btn btn-primary" id="search" role="button" onclick="search()">Search || Refresh</button>
-                <button class="btn btn-danger" id="continue" role="button" onclick="booking()" style="float:right;display:none;">Continue Booking (<span id="count" style="font-weight:bolder">0</span>)</button>
-                <button class="btn btn-warning" id="selection" role="button" onclick="showhide()" style="float:right;display:none;margin-right:10px;">Show Selection </button>
+                <label style="font-size:18px;font-weight:400;margin-right:15px;">Probable  Booking Date: </label> 
+                <input type="text" name="date" id="date" alt="date" class="IP_calendar btn btn-default " title="Y-m-d" readonly>
+                <button class="btn btn-default" id="search" role="button" onclick="search()">Search <i class="fa fa-search-plus" aria-hidden="true"></i></i>
+                <button class="btn btn-danger" id="continue" role="button" onclick="booking()" style="float:right;display:none;width:150px">Continue Booking (<span id="count" style="font-weight:bolder">0</span>)</button>
+                <button class="btn btn-warning" id="selection" role="button" onclick="showhide()" style="float:right;display:none;margin-right:10px;width:150px">Show Selection </button>
                
                 </p>
           
@@ -107,14 +108,13 @@
                
 
              
-            <div style="position:fixed;bottom:0px;width:100%">
 
-                    <p>&copy; 2019 Tripfez Sdn. Bhd</p>
-            </div>
  
         </div>
   
-
+<div style="position:fixed;bottom:0px;width:100%;height:25px;background-color:black;color:#FFF;">
+     <p align='center'> Copyright &copy; 2018 Tripfez. All rights reserved.</p>
+</div>
   
 
     
