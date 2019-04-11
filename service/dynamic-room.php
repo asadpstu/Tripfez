@@ -1,4 +1,9 @@
 <?php
+echo "
+<div class='row' style='border-bottom:5px solid #5cb85c;margin:10px;padding:10px;'>  
+<div class='col-sm-12'  align='left'><span style='font-size:20px;font-weight:500;'>Assume, you are registered as <span style='color:Green;'> Mr. ABC </span> </span></div>
+</div>
+";
 $room = $_GET['room'];
 $arrfields = explode(',', $room);
 foreach($arrfields as $roomSingle) 
@@ -24,7 +29,7 @@ echo "
 <span id='room-suggestion' style='font-size:16px;color:RED;'></span>
 </div>
   
-<div class='col-sm-4'  align='right'>(Assume) Mr. ABC Please, <input id='confirm-booking' class='btn btn-success' type='button' onclick='submitbooking()' value='Confirm and Submit Booking' /></div>
+<div class='col-sm-4'  align='right'><input id='confirm-booking' class='btn btn-success' type='button' onclick='submitbooking()' value='Confirm and Submit Booking' /></div>
 </div>
 ";
 ?>

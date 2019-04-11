@@ -15,6 +15,7 @@
     
 
    echo "Booked";
+   mysqli_close($mysqli);
 
     
     

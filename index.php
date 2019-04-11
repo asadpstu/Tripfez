@@ -93,9 +93,10 @@
                     <div class="modal-content">
                         
                         <div class="modal-body" align="center">
-                            <button class="btn btn-warning"  aria-hidden="true">Are You sure to Proceed ? </button>
-                            <button class="btn" data-dismiss="modal" aria-hidden="true">Not Now</button>
-                            <button class="btn-primary btn" id="SubForm" onclick="reconfirm()">Yes, Proceed</button>
+                            
+                            <button class="btn btn-primary " style='width:200px;' data-dismiss="modal" aria-hidden="true">Not Now</button>
+                            <button class="btn btn-success" style='width:200px;' id="SubForm" onclick="reconfirm()">Yes, Proceed</button>
+
                         </div>
                         
                         
