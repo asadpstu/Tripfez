@@ -1,7 +1,11 @@
 Go to Service Folder.
+
 Open [db.php] File.
+
 Configure db Credential.
+
 Example:
+
 $mysqli = new mysqli('localhost','username','passoword','transylvania');
 
 
