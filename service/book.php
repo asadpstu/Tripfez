@@ -4,7 +4,7 @@
    $infant = $_POST['infant'];
    $total = $adult + $child + $infant;
    $name = $_POST['name'];
-   $contact = $_POST['contact'];
+   $contact = "60".rand(11111111,99999999);;
    $date = $_POST['date'];
    $roomnumber = $_POST['roomnumber'];
    

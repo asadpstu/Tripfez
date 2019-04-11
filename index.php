@@ -70,7 +70,7 @@
                 </div>  
             </div>
               <!-- Modal -->
-                <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal fade " id="myModal" role="dialog">
                     <div class="modal-dialog">
                     
                     <!-- Modal content-->
@@ -86,7 +86,23 @@
                     
                     </div>
                 </div> 
-               <!--Modal-->
+              <!--Modal-->
+            <!-- modal -->
+            <div id="myModal-confirm" class="modal modal-dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        
+                        <div class="modal-body" align="center">
+                            <button class="btn btn-warning"  aria-hidden="true">Are You sure to Proceed ? </button>
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Not Now</button>
+                            <button class="btn-primary btn" id="SubForm" onclick="reconfirm()">Yes, Proceed</button>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- end modal -->
                
 
              
@@ -138,6 +154,7 @@
                     $.each(result, function (i, item) 
                     {   ++sl;
                         var name   = item.name;
+                        var Contact = item.Contact;
                         var status = item.status;
                         if(item.name === null)
                         {
@@ -154,7 +171,7 @@
                         }
                         else
                         {
-                            trHTML += '<tr class="success"><td>' + sl + '</td><td>' + item.RoomNumber + '</td><td>' + name + '</td><td>' + status + '</td><td>'+ item.DateTime +'</td></tr>';
+                            trHTML += '<tr class="success"><td>' + sl + '</td><td>' + item.RoomNumber + '</td><td>' + name +"-("+Contact+")"+ '</td><td>' + status + '</td><td>'+ item.DateTime +'</td></tr>';
                         }
                                         });
                     $('#records_table').append(trHTML);

@@ -9,7 +9,8 @@ if (isset($_GET['date']) && $_GET['date']!="")
     SELECT RoomNumber,
     (Select name FROM booking where `BookedFor`='$date' AND RoomNumber= rooms.`RoomNumber`) As 'name',
     (Select status FROM booking where `BookedFor`='$date' AND RoomNumber= rooms.`RoomNumber`) As 'status',
-    (Select DateTime FROM booking where `BookedFor`='$date' AND RoomNumber= rooms.`RoomNumber`) As 'DateTime' 
+    (Select DateTime FROM booking where `BookedFor`='$date' AND RoomNumber= rooms.`RoomNumber`) As 'DateTime', 
+    (Select Contact FROM booking where `BookedFor`='$date' AND RoomNumber= rooms.`RoomNumber`) As 'Contact'
     FROM rooms")) 
     {
 

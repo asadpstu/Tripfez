@@ -29,6 +29,8 @@ echo "
 ";
 ?>
 
+
+
 <script>
     function adult(roomid){
        var adult = $('#adult_'+roomid).val();
@@ -242,7 +244,8 @@ echo "
 
     function cancelRoom(roomid)
     {
-        $("#room-select-"+roomid).remove();
+        $("#room-select-"+roomid).hide('slow', function(){ $("#room-select-"+roomid).remove(); });
+        
         $('#room_'+roomid).removeClass( "btn btn-warning" ).addClass( "btn btn-primary" );
         book(roomid);
         confirmbooking();
@@ -250,59 +253,116 @@ echo "
 
     function submitbooking()
     {
-        var roomlist = $('#roomNumber').val()
-        
-        $('#records_table').show(1000);
-        $('#main-logic').hide(1000);
-        $('#continue').hide(1000);
-        $('#selection').hide(1000);
-        var match = roomlist.split(',')
-        for (var a in match)
+        $("#myModal-confirm").modal('show');
+		     
+    }
+
+    function reconfirm() {
+
+        $('#SubForm').html('Processing Data...');
+        var roomlist = $('#roomNumber').val();        
+        var match = roomlist.split(',');
+
+        var count = Number((roomlist.match(/,/g) || []).length);
+
+        if(Number(count) == 0)
         {
-            
-            var variable = match[a];
-            
-            var checkAdult = $('#adult_'+variable).val();
-            if(checkAdult >= 1)
-            {
-                var checkChild = $('#child_'+variable).val();
-                if(checkChild <= 0)
-                {
-                    checkChild =0;
-                }
-                var checkInfant = $('#infant_'+variable).val();
-                if(checkInfant <= 0)
-                {
-                    checkInfant = 0;
-                }
+
+            //alert("Executing this block");
+                var variable = roomlist;
                 
-                 $.ajax({ url: 'service/book.php',
-                    data: {
-                        'adult'  :  checkAdult,
-                        'child'  :  checkChild,
-                        'infant' :  checkInfant,
-                        'name'   :  "Mr. ABC",
-                        'contact':  "601385******",
-                        'date'   :  $('#date').val(),
-                        'roomnumber' : variable
-                     },
-                    type: 'post',
-                    dataType:'json',
-                    success: function(data) 
+                var checkAdult = $('#adult_'+variable).val();
+                if(checkAdult >= 1)
+                {
+                    var checkChild = $('#child_'+variable).val();
+                    if(checkChild <= 0)
                     {
-                        //Do nothing
+                        checkChild =0;
                     }
-                });
+                    var checkInfant = $('#infant_'+variable).val();
+                    if(checkInfant <= 0)
+                    {
+                        checkInfant = 0;
+                    }
+                    
+                    $.ajax({ url: 'service/book.php',
+                        data: {
+                            'adult'  :  checkAdult,
+                            'child'  :  checkChild,
+                            'infant' :  checkInfant,
+                            'name'   :  "Mr. ABC",
+                            'contact':  "601385******",
+                            'date'   :  $('#date').val(),
+                            'roomnumber' : variable
+                        },
+                        type: 'post',
+                        dataType:'json',
+                        success: function(data) 
+                        {
+                            //Do nothing
+                        }
+                    });
+                    
+                }
+                $('#SubForm').html('Processed!');
+
+        }
+        
+        if(Number(count) >= 1)
+        {
+            //alert("Executing that block");
+            for (var a in match)
+            {
                 
-            }
+                var variable = match[a];
+                
+                var checkAdult = $('#adult_'+variable).val();
+                if(checkAdult >= 1)
+                {
+                    var checkChild = $('#child_'+variable).val();
+                    if(checkChild <= 0)
+                    {
+                        checkChild =0;
+                    }
+                    var checkInfant = $('#infant_'+variable).val();
+                    if(checkInfant <= 0)
+                    {
+                        checkInfant = 0;
+                    }
+                    
+                    $.ajax({ url: 'service/book.php',
+                        data: {
+                            'adult'  :  checkAdult,
+                            'child'  :  checkChild,
+                            'infant' :  checkInfant,
+                            'name'   :  "Mr. ABC",
+                            'contact':  "601385******",
+                            'date'   :  $('#date').val(),
+                            'roomnumber' : variable
+                        },
+                        type: 'post',
+                        dataType:'json',
+                        success: function(data) 
+                        {
+                            //Do nothing
+                        }
+                    });
+                    
+                }
+                $('#SubForm').html('Processed!');
+            }            
         }
 
+        
         setTimeout(function() {
             search();
-        }, 1000);
-        
-    
+            $("#myModal-confirm").modal('hide');
+            $('#SubForm').html('Yes, Proceed');
+        }, 500);
+ 
     }
+
+
 
 
 </script>
