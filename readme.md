@@ -4,10 +4,13 @@ Configure db Credential.
 Example:
 $mysqli = new mysqli('localhost','username','passoword','transylvania');
 
+
 Open Browser phymyadmin or Mysql tools(Mysql workbench or Sqlyog).
 ======================
 Import transylvania.sql file.
 Find it "Sql Directory"
+
+Please,don't Empty rooms table.
 
 Almost Done!!
 Browse Application through 
