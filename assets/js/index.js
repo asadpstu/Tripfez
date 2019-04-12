@@ -16,6 +16,23 @@ function search()
     $('#continue').hide(1000);
     $('#selection').hide(1000);
     var date = $('#date').val();
+
+    //Getting cuurent date
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = yyyy+"-"+mm+"-"+dd;
+    var selecteddate = new Date(date);
+    var today        = new Date(today);
+    var disable="false";
+    if(selecteddate < today)
+    {
+        disable="true";
+    }
+    
+
     $.ajax({
             type: "GET",
             url: "service/available-room.php",
@@ -43,7 +60,16 @@ function search()
                     if(item.name === null && item.status === null)
                     {
                     
+                        if(disable == 'false')
+                        {
                         trHTML += '<tr><td>' + sl + '</td><td>' + item.RoomNumber + '</td><td>' + name + '</td><td>' + status + '</td><td><button class="btn btn-primary" id="room_' + item.RoomNumber + '" onclick="book(' + item.RoomNumber + ')">Available for Booking</button></td></tr>';     
+                        }
+                         if(disable == 'true')
+                        {
+                        trHTML += '<tr><td>' + sl + '</td><td>' + item.RoomNumber + '</td><td>' + name + '</td><td>' + status + '</td><td><button class="btn btn-default" id="room_' + item.RoomNumber + '" >Unavailable </button></td></tr>';     
+                        }      
+                    
+                    
                     }
                     else
                     {
