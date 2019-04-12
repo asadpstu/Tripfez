@@ -94,7 +94,8 @@
                     <div class="modal-content">
                         
                         <div class="modal-body" align="center">
-                            
+                            <h4>Assume this section is for payment gateway.</h4>
+                            <h4 style='color:green;font-weight:bold;'>Do you want to proceed?</h4>
                             <button class="btn btn-primary " style='width:200px;' data-dismiss="modal" aria-hidden="true">Not Now</button>
                             <button class="btn btn-success" style='width:200px;' id="SubForm" onclick="reconfirm()">Yes, Proceed</button>
 
